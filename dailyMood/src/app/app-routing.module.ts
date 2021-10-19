@@ -4,6 +4,7 @@ import { CreateRecordComponent } from './components/create-record/create-record.
 import { ListDaysComponent } from './components/list-days/list-days.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'overview' , pathMatch: 'full' },
   { path: 'overview', component:ListDaysComponent },
   { path: 'add-record', component:CreateRecordComponent }
 ];
