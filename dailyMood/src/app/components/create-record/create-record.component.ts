@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators , FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-create-record',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateRecordComponent implements OnInit {
 
-  constructor() { }
+  createNewRecord: FormGroup;
+  submitted: boolean = false;
+     
+  constructor( private fb: FormBuilder) {
+    this.createNewRecord = this.fb.group({
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+      scale: ['', Validators.required],
+      keywords: ['', [Validators.required, Validators.maxLength(7) ]],
+      event: ['', Validators.required]
+    })
+   }
 
   ngOnInit(): void {
   }
 
+addNewRecord(){
+  console.log(this.createNewRecord)
+}
 }

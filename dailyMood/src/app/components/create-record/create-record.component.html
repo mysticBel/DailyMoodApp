@@ -4,38 +4,38 @@
            
             <div class="card text-center   ">
                 <div class="card-body ">
-                     <h3 class="mt-4  mb-4">Add new record 📌</h3>
-                     <form class="mt-4 mb-4">
+                     <h3 class="mt-4  mb-4">Add new record 📌</h3> 
+                     <form class="mt-4 mb-4" [formGroup]= "createNewRecord" (ngSubmit)="addNewRecord()">      <!--using event biding--> 
                          <div class="row">
                              <div class="col">
-                                 <input type="date" class="form-control" placeholder="Date">                              
+                                 <input type="date" class="form-control" formControlDate="date" placeholder="Date">                              
                              </div>
                              <div class="col">
-                                <input type="time" class="form-control" placeholder="Hour">                              
+                                <input type="time" class="form-control" formControlDate="hour" placeholder="Hour">                              
                             </div>
                          </div>
                          <div class="row">
                             <div class="col mt-3">
-                                <input type="number" class="form-control" placeholder="From 0 to 10, how are you feeling at the moment?">                              
+                                <input type="number" class="form-control" formControlDate="scale" placeholder="From 0 to 10, how are you feeling at the moment?">                              
                             </div>
                            
                         </div>
 
                         <div class="row">
                             <div class="col mt-3">
-                                <input type="text" class="form-control" placeholder="Add some keywords/phrase">                              
+                                <input type="text" class="form-control" formControlDate="keywords"  placeholder="Add some keywords/phrase">                              
                             </div>                     
                         </div>
                         <div class="row">
                             <div class="col mt-3">
-                                <input type="text" class="form-control" placeholder="Please give more details on what's going on here">                              
+                                <input type="text" class="form-control" formControlDate="event" placeholder="Please give more details on what's going on here">                              
                             </div>                     
                         </div>
                         <div class="mt-3">
                              <button type="text" class="btn btn-secondary btn-lg me-2" routerLink="/overview"> Back </button>
-                             <button type="submit" class="btn btn-outline-dark  btn-lg "> Submit </button>
+                             <button type="submit" class="btn btn-outline-dark  btn-lg " > Submit </button>
                         </div>
-                        
+                       
                      </form>
                 </div>
             </div>
