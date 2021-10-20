@@ -9,14 +9,14 @@ import { FormGroup, Validators , FormBuilder } from '@angular/forms';
 export class CreateRecordComponent implements OnInit {
 
   createNewRecord: FormGroup;
-  submitted: boolean = false;
+  submitted= false;
      
   constructor( private fb: FormBuilder) {
     this.createNewRecord = this.fb.group({
       date: ['', Validators.required],
       time: ['', Validators.required],
       scale: ['', Validators.required],
-      keywords: ['', [Validators.required, Validators.maxLength(7) ]],
+      keywords: ['', Validators.required],
       event: ['', Validators.required]
     })
    }
@@ -25,6 +25,10 @@ export class CreateRecordComponent implements OnInit {
   }
 
 addNewRecord(){
+  this.submitted = true;
+  if(this.createNewRecord.invalid){
+    return;
+  }
   console.log(this.createNewRecord)
 }
 }
