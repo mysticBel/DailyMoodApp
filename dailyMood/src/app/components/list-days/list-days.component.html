@@ -49,6 +49,14 @@
                   </tr>
                 </tbody>
               </table>
+                 
+              <!-- example angularfire -->
+              <ul>
+                <li class="text" *ngFor="let item of items | async">
+                  {{item.name}}
+                  {{item.keyword}}
+                </li>
+              </ul>
         </div>
     </div>
 </div>
