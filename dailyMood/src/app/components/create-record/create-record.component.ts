@@ -29,6 +29,18 @@ addNewRecord(){
   if(this.createNewRecord.invalid){
     return;
   }
-  console.log(this.createNewRecord)
+  const moodRecord: any = {
+    date: this.createNewRecord.value.date,
+    time: this.createNewRecord.value.time,
+    scale: this.createNewRecord.value.scale,
+    keywords: this.createNewRecord.value.keywords,
+    event: this.createNewRecord.value.event,
+    creationDate: new Date(),
+    updateDate: new Date()
+
+  }
+  // console.log(this.createNewRecord)
+  // data that will be sent to Firestore :D
+  console.log(moodRecord);
 }
 }
