@@ -26,7 +26,8 @@
                     <td>{{record.keywords}}</td>
                     <td>{{record.event}}</td>
                     <td> 
-                        <h4><i class="uil uil-edit  text-info" style= "margin-right: 0.8rem;"></i><i class="uil uil-trash-alt text-danger"></i></h4></td>
+                        <h4><i class="uil uil-edit  text-info" style= "margin-right: 0.8rem;"></i>
+                          <i (click)="deleteMoodRecord(record.id)" class="uil uil-trash-alt text-danger"></i></h4></td>
                   </tr>
 
                   <!-- <tr>   
