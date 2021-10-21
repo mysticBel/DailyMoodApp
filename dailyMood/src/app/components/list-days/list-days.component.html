@@ -7,7 +7,7 @@
             <table class="table table-striped table-responsive mt-5">
                 <thead>
                   <tr>
-                    <th >#</th>
+                    
                     <th >🗓️Date</th>
                     <th >⏰Hour</th>
                     <th >📊Emotional Scale</th>
@@ -17,7 +17,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>   
+
+                  <tr *ngFor="let record of moodListArray">   
+                   
+                    <td>{{record.date}}</td>
+                    <td>{{record.time}}</td>
+                    <td>{{record.scale}}</td>
+                    <td>{{record.keywords}}</td>
+                    <td>{{record.event}}</td>
+                    <td> 
+                        <h4><i class="uil uil-edit  text-info" style= "margin-right: 0.8rem;"></i><i class="uil uil-trash-alt text-danger"></i></h4></td>
+                  </tr>
+
+                  <!-- <tr>   
                     <th scope="row">1</th>
                     <td>17/10</td>
                     <td>20:45</td>
@@ -46,7 +58,7 @@
                     <td>i felt overwhelmed and got dehydrated :c</td>
                     <td> 
                         <h4><i class="uil uil-edit  text-info" style= "margin-right: 0.8rem;"></i><i class="uil uil-trash-alt text-danger"></i></h4></td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
                  
