@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from '@firebase/util';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,11 @@ export class DailyMoodRecordService {
    return this.firestore.collection('DB_MoodList').add(moodList);
   }
 
+  // get data from Firestore
+  getMoodRecord(){
+   // makes petition to the collection 
+   return this.firestore.collection('DB_MoodList').snapshotChanges();} 
+
+  
  
 }
