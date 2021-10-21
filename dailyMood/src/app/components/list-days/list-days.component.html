@@ -20,7 +20,7 @@
 
                   <tr *ngFor="let record of moodListArray">   
                    
-                    <td>{{record.date}}</td>
+                    <td>{{record.date | date}}</td>
                     <td>{{record.time}}</td>
                     <td>{{record.scale}}</td>
                     <td>{{record.keywords}}</td>
