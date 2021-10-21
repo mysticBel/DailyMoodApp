@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators , FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DailyMoodRecordService } from 'src/app/services/daily-mood-record.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class CreateRecordComponent implements OnInit {
   createNewRecord: FormGroup;
   submitted= false;
      
-  constructor( private fb: FormBuilder, private _moodListService: DailyMoodRecordService ) {
+  constructor( private fb: FormBuilder, private _moodListService: DailyMoodRecordService,
+    private router: Router) {
     this.createNewRecord = this.fb.group({
       date: ['', Validators.required],
       time: ['', Validators.required],
@@ -45,6 +47,7 @@ addNewRecord(){
   // console.log(moodRecord);
   this._moodListService.createMoodRecord(moodRecord).then(() => {
     console.log('mood list saved successfully');
+    this.router.navigate(['/list-days'])
   }).catch(error=>{
     console.log(error);
   }) 
