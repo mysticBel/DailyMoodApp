@@ -19,6 +19,9 @@ export class DailyMoodRecordService {
    // makes petition to the collection 
    return this.firestore.collection('DB_MoodList', ref => ref.orderBy('creationDate' , 'asc')).snapshotChanges();} 
 
-  
+  //deletes data using id 
+  deleteMoodRecord(id: string): Promise<any> {
+    return this.firestore.collection('DB_MoodList').doc(id).delete();
+  }
  
 }
