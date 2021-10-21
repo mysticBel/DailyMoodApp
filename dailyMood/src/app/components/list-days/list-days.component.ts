@@ -25,7 +25,18 @@ export class ListDaysComponent implements OnInit {
   }
   getMoodRecord(){
     this._moodListService.getMoodRecord().subscribe(data => {
-      console.log(data);
+      // console.log(data);
+      this.moodListArray = [];
+      data.forEach((e:any) => {
+        //  console.log(e.payload.doc.id);  
+        //  console.log(e.payload.doc.data());  Shows array in console
+
+        this.moodListArray.push({
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()    //The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array or object into another array or object.
+        })
+      });
+      console.log(this.moodListArray);
     })
   }
 }
