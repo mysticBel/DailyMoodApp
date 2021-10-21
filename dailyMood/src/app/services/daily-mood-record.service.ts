@@ -17,7 +17,7 @@ export class DailyMoodRecordService {
   // get data from Firestore
   getMoodRecord(){
    // makes petition to the collection 
-   return this.firestore.collection('DB_MoodList').snapshotChanges();} 
+   return this.firestore.collection('DB_MoodList', ref => ref.orderBy('creationDate' , 'asc')).snapshotChanges();} 
 
   
  
