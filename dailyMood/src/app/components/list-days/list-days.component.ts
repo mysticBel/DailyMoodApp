@@ -39,4 +39,13 @@ export class ListDaysComponent implements OnInit {
       console.log(this.moodListArray);
     })
   }
+
+  deleteMoodRecord(id:string){
+    this._moodListService.deleteMoodRecord(id).then(() => {
+      console.log('deleting record succesfully')
+    }).catch(error => {
+      console.log(error);
+    })
+
+  }
 }
