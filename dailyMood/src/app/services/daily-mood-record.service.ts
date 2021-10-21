@@ -9,5 +9,9 @@ export class DailyMoodRecordService {
   // making the request to backend
   constructor(private firestore: AngularFirestore) { }
 
+  createMoodRecord(moodList:any): Promise<any>{
+   return this.firestore.collection('DB_MoodList').add(moodList);
+  }
+
  
 }
