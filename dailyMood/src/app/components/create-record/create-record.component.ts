@@ -13,6 +13,7 @@ export class CreateRecordComponent implements OnInit {
   createNewRecord: FormGroup;
   submitted= false;
   id: string | null;
+  title: string = 'Add New Record 📌';
      
   constructor( private fb: FormBuilder, private _moodListService: DailyMoodRecordService,
     private router: Router,
@@ -31,6 +32,7 @@ export class CreateRecordComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.editRecordbyId()
   }
 
 addNewRecord(){
@@ -58,4 +60,15 @@ addNewRecord(){
     console.log(error);
   }) 
 }
+
+editRecordbyId(){
+  this.title = 'Edit record 📝'
+  if(this.id !== null){
+    this._moodListService.getAgainMoodRecord(this.id).subscribe(data =>{
+      console.log(data)
+    })
+  }
+}
+
+
 }
