@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'overview' , pathMatch: 'full' },
   { path: 'overview', component:ListDaysComponent },
   { path: 'add-record', component:CreateRecordComponent },
+  { path: 'edit-record/:id', component:CreateRecordComponent },
   { path: '**', redirectTo: 'overview' , pathMatch: 'full' }
 ];
 
