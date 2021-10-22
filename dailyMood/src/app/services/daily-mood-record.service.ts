@@ -23,5 +23,10 @@ export class DailyMoodRecordService {
   deleteMoodRecord(id: string): Promise<any> {
     return this.firestore.collection('DB_MoodList').doc(id).delete();
   }
+
+  // get data from Firestore for EDItinG !!
+  getAgainMoodRecord(id: string){
+    return this.firestore.collection('DB_MoodList').doc(id).snapshotChanges();
+  }
  
 }
