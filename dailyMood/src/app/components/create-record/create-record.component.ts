@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators , FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DailyMoodRecordService } from 'src/app/services/daily-mood-record.service';
 
 @Component({
@@ -12,9 +12,11 @@ export class CreateRecordComponent implements OnInit {
 
   createNewRecord: FormGroup;
   submitted= false;
+  id: string | null;
      
   constructor( private fb: FormBuilder, private _moodListService: DailyMoodRecordService,
-    private router: Router) {
+    private router: Router,
+    private aRoute: ActivatedRoute) {
     this.createNewRecord = this.fb.group({
       date: ['', Validators.required],
       time: ['', Validators.required],
@@ -22,6 +24,10 @@ export class CreateRecordComponent implements OnInit {
       keywords: ['', Validators.required],
       event: ['', Validators.required]
     })
+    this.id = this.aRoute.snapshot.paramMap.get('id');
+    console.log(this.id);
+
+
    }
 
   ngOnInit(): void {
