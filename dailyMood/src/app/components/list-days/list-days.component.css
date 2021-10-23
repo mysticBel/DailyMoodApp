@@ -1,3 +1,9 @@
 i{
     cursor: pointer;
 }
+/* .card-body{
+    opacity: 98;
+} */
+.card{
+    border-radius: 20px;
+}
