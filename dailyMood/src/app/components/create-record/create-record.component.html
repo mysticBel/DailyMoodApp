@@ -6,7 +6,7 @@
                 <div class="card-body ">
                      <h3 class="mt-4  mb-4">{{ title }}</h3> 
                      
-                     <form class="mt-4 mb-4" [formGroup]= "createNewRecord" (ngSubmit)="addNewRecord()">     
+                     <form class="mt-4 mb-4" [formGroup]= "createNewRecord" (ngSubmit)="addEditRecord()">     
                          <div class="row">
                              <div class="col">
                                  <input type="date" class="form-control" formControlName="date" placeholder="Date">                              
