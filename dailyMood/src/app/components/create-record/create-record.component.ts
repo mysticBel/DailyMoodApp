@@ -35,11 +35,20 @@ export class CreateRecordComponent implements OnInit {
     this.editRecordbyId();
   }
 
-addNewRecord(){
+addEditRecord(){
   this.submitted = true;
   if(this.createNewRecord.invalid){
     return;
   }
+  if(this.id === null){
+    this.addNewRecord();
+  } else {
+    this.editRecord(this.id);
+  }
+}
+
+
+addNewRecord(){
   const moodRecord: any = {
     date: this.createNewRecord.value.date,
     time: this.createNewRecord.value.time,
@@ -60,12 +69,38 @@ addNewRecord(){
     console.log(error);
   }) 
 }
+
+editRecord(id:string){
+  const moodRecord: any = {
+    date: this.createNewRecord.value.date,
+    time: this.createNewRecord.value.time,
+    scale: this.createNewRecord.value.scale,
+    keywords: this.createNewRecord.value.keywords,
+    event: this.createNewRecord.value.event,
+    updateDate: new Date()
+
+  }
+
+  this._moodListService.updateMoodRecord(id, moodRecord).then(() => {
+    this.router.navigate(['/list-days']);
+  })
+}
+
 editRecordbyId(){
- 
+  
   if(this.id !== null){ 
     this.title = 'Edit record';
-    this._moodListService.getAgainMoodRecord(this.id).subscribe(data =>{
-      console.log(data)
+    this._moodListService.getAgainMoodRecord(this.id).subscribe((data:any) =>{
+      console.log(data.payload.data()['keywords']);
+      this.createNewRecord.setValue({
+           date: data.payload.data()['date'],
+           time: data.payload.data()['time'],
+          scale: data.payload.data()['scale'],
+          keywords: data.payload.data()['keywords'],
+          event: data.payload.data()['event']
+    });
+    
+
     })
   }
 }
