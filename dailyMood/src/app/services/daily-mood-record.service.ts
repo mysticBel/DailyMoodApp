@@ -17,7 +17,7 @@ export class DailyMoodRecordService {
   // get data from Firestore
   getMoodRecord(){
    // makes petition to the collection 
-   return this.firestore.collection('DB_MoodList', ref => ref.orderBy('creationDate' , 'asc')).snapshotChanges();} 
+   return this.firestore.collection('DB_MoodList', ref => ref.orderBy('date' , 'asc')).snapshotChanges();} 
 
   //deletes data using id 
   deleteMoodRecord(id: string): Promise<any> {
@@ -29,4 +29,7 @@ export class DailyMoodRecordService {
     return this.firestore.collection('DB_MoodList').doc(id).snapshotChanges();
   }
  
+  updateMoodRecord(id: string,data: any): Promise<any>{
+    return this.firestore.collection('DB_MoodList').doc(id).update(data);
+  }
 }
